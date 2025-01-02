@@ -1,0 +1,23 @@
+﻿@model FrizerskiSalonRezervacija.Models.Reservation
+
+<h1>Dodaj novu rezervaciju</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TimeSlot"></label>
+        <input asp-for="TimeSlot" class="form-control" placeholder="Unesite termin (npr. 10:00 - 11:00)" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ServiceId">Odaberite uslugu</label>
+        <select asp-for="ServiceId" asp-items="@(new SelectList(ViewBag.Services, "Id", "Name"))" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserId">Odaberite korisnika</label>
+        <select asp-for="UserId" asp-items="@(new SelectList(ViewBag.Users, "Id", "Name"))" class="form-control"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Spremi</button>
+</form>

@@ -1,14 +1,18 @@
 ﻿using FrizerskiSalonRezervacija.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace FrizerskiSalonRezervacija.Data
 {
-	public class ApplicationDbContext : DbContext
-	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+    public class ApplicationDbContext : IdentityDbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
 
-		public DbSet<User> Users { get; set; }
-		public DbSet<Reservation> Reservations { get; set; }
-		public DbSet<Service> Services { get; set; }
-	}
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Service> Services { get; set; }
+        
+    }
 }
