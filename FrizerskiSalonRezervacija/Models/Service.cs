@@ -1,10 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class Service
+namespace FrizerskiSalonRezervacija.Models
 {
-	public int Id { get; set; }
-	public string Name { get; set; } = string.Empty;
+    public class Service
+    {
+        public int Id { get; set; }
 
-	[Column(TypeName = "decimal(18,2)")]
-	public decimal Price { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Price { get; set; }
+    }
 }

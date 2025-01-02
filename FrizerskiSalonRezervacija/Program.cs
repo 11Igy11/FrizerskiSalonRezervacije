@@ -31,9 +31,9 @@ app.UseRouting();
 app.UseAuthentication(); // Uključi autentifikaciju
 app.UseAuthorization();
 
+// Mapiranje MVC ruta
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
 
 app.Run();

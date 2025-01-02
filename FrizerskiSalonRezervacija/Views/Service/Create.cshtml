@@ -1,0 +1,15 @@
+﻿@model FrizerskiSalonRezervacija.Models.Service
+
+<h1>Dodaj novu uslugu</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Naziv usluge</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Price">Cijena usluge</label>
+        <input type="number" class="form-control" id="Price" name="Price" step="0.01" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Spremi</button>
+</form>
