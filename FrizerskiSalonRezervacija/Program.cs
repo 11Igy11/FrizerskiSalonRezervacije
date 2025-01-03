@@ -11,7 +11,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>()
+// Dodavanje defaultne identifikacije i Entity Framework za Identity
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
@@ -28,12 +29,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Uključi autentifikaciju i autorizaciju
 app.UseAuthentication(); // Uključi autentifikaciju
-app.UseAuthorization();
+app.UseAuthorization();  // Uključi autorizaciju
 
 // Mapiranje MVC ruta
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();  // Ovo omogućuje korištenje Razor Pages, što je korisno za autentifikaciju
 
 app.Run();
