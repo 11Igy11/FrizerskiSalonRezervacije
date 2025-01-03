@@ -5,7 +5,9 @@
 <h3>Jeste li sigurni da želite obrisati uslugu: @Model.Name?</h3>
 
 <form asp-action="DeleteConfirmed" method="post">
-    <input type="hidden" name="id" value="@Model.Id" />
+    <!-- Korištenje asp-route-id za prosljeđivanje ID-a -->
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+
     <button type="submit" class="btn btn-danger">Obriši</button>
     <a asp-action="Index" class="btn btn-secondary">Otkaži</a>
 </form>
